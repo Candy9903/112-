@@ -1,0 +1,27 @@
+#ifndef COMMODITY_H
+#define COMMODITY_H
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+class Commodity {
+private:
+	string commodityName;
+	int price;
+	int static commodityTotal;
+	//int amount;
+	//不做鞋子大小
+public:
+	//string newCommodityName,int newPrice,int newAmount 為變數
+	Commodity();
+	Commodity(string, int);
+	void setCommodityName(string);
+	void setPrice(int);
+	//void setAmount(int newAmount);
+	string getCommodityName()const;
+	int getPrice()const;
+	int static getCommodityTotal();
+	void print();
+};
+#endif

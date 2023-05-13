@@ -1,0 +1,35 @@
+#include "Commodity.h"
+int Commodity::commodityTotal = 0;
+Commodity::Commodity() {
+	commodityName = "GG";
+	price = 1;
+	commodityTotal++;
+}
+Commodity::Commodity(string newCDN, int newP) {
+	//newCDN=newCommodityName;newP=newPrice;
+	setCommodityName(newCDN);
+	setPrice(newP);
+	commodityTotal++;
+}
+
+void Commodity::setCommodityName(string newCDN) {
+	commodityName = newCDN;
+}
+
+void Commodity::setPrice(int newP) {
+	price = newP;
+}
+string Commodity::getCommodityName()const {
+	return commodityName;
+}
+int Commodity::getPrice()const{
+	return price*30;
+}
+int Commodity::getCommodityTotal()
+ {
+	return commodityTotal;
+}
+void Commodity::print() {
+	cout << setw(6) << "TW$: " << price;
+	cout << setw(50) << commodityName ;
+}

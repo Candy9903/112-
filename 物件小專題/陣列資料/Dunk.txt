@@ -1,0 +1,22 @@
+vector<Commodity> Dunk= {
+{"Retro White Black Panda {2021}", 126,12},
+{"Light Orewood Brown Sashiko", 111,5},
+{"Industrial Blue Sashiko", 110,23},
+{"Grey Fog", 162,3},
+{"Setsubun {2022}", 146,8},
+{"Retro White Pure Platinum", 100,10},
+{"QS LeBron James Fruity Pebbles", 101,16},
+{"Team Gold", 101,23},
+{"Retro Red Swoosh Panda", 122,1},
+{"Retro PRM Valentine's Day {2023}", 106,4},
+{"High Panda Black White {2021}", 120,6},
+{"Retro QS Argon {2022}", 112,7},
+{"Summit White Midnight Navy", 152,14},
+{"Mica Green", 124,18},
+{"High Blue Chill", 198,2},
+{"Stencil Swoosh", 128,9},
+{"Retro Reverse Brazil", 100,13},
+{"Racer Blue Photon Dust", 127,20},
+{"SP Kentucky {2020/2022}", 196,15},
+{"Coconut Milk", 154,19}
+};

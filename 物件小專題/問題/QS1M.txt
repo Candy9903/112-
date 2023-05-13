@@ -1,0 +1,120 @@
+#include "Commodity.h"
+
+#include <iostream>
+#include<ostream>
+#include <utility> 
+#include<string>
+#include <vector>
+
+const int size = 20;
+static int total = 0;
+void Show(vector<vector< Commodity>> AllShoese) {
+cout << "-------------------------商品資料----------------------------"<<endl<<endl<<endl;
+    for (int i = 0; i < 3; i++) {
+        if (i == 0) {
+            cout << "-------------------------AirForce----------------------------" << endl<<endl;
+        }
+        else if (i == 1) {
+            cout << "-------------------------AirMax----------------------------" << endl << endl;
+        }
+        else cout << "-------------------------Dunk----------------------------" << endl << endl;
+        for (int j = 0; j < size; j++) {
+            if (total < 10) {
+                cout<<setw(2)<< total;
+            }
+            else {
+            cout << total;
+            }
+            AllShoese[i][j].print();
+            total++;
+            cout << endl;
+        }
+        cout<< endl;
+    }
+    total = 0;
+}
+int main()
+{
+	vector<Commodity> AirForce1 = {
+	{"07 White", 101},
+	{"Supreme White", 161},
+	{"SP AMBUSH Black", 197},
+ 	{"Supreme Black", 163},
+ 	{"Off-White Pine Green", 177},
+ 	{"07 Black Black", 112},
+ 	{"Four Horsemen LeBron", 103},
+ 	{"SP AMBUSH Phantom", 220},
+ 	{"Drake NOCTA Certified Lover Boy", 164},
+ 	{"Tiffany & Co.1837", 934},
+ 	{"SP Supreme Wheat", 200},
+ 	{"Off-White Blac", 148},
+ 	{"Jackie Robinson", 262},
+ 	{"07 White Swoosh Panda", 101},
+ 	{"Off-White White", 144},
+ 	{"Flax (2019/2022)", 106},
+ 	{"SP Billie Eilish Triple White", 106},
+ 	{"07 Feel Free, Let’s Talk", 123},
+ 	{"07 QS Purple Skeleton Halloween (2021)", 108},
+ 	{"Stussy Fossil", 151}
+	};
+	vector<Commodity> AirMax = {
+	{ "Premium Denim Leopard", 147 },
+	{ "Terrascape Plus Black Anthracite", 119 },
+	{ "'86 OG Big Bubble Sport Red", 142 },
+	{ "Plus Black Silver White", 147 },
+	{ "Plus White", 122 },
+	{ "White Mica Green", 144 },
+	{ "Plus Black University Blue {2022}", 141 },
+	{ "Plus Toggle Black Reflective", 153 },
+	{ "97 Triple White Wolf Grey", 99 },
+	{ "Plus Triple Black", 136 },
+	{ "SP Concepts Mellow", 139 },
+	{ "95 Triple Black {2020}", 117 },
+	{ "97 OG Silver Bullet {2022}", 117 },
+	{ "Crepe Soft Grey", 120 },
+	{ "270 White Black", 135 },
+	{ "Crepe Brown {2022}", 128 },
+	{ "Air Max 95 Light Bone GID", 120 },
+	{ "'86 OG Golf NRG Always Fresh", 195 },
+	{ "Plus 3 Triple White", 147 },
+	{ "Travis Scott Cactus Jack Saturn Gold", 186 }
+	};
+	vector<Commodity> Dunk= {
+     {"Retro White Black Panda {2021}", 126},
+     {"Light Orewood Brown Sashiko", 111},
+     {"Industrial Blue Sashiko", 110},
+     {"Grey Fog", 162},
+     {"Setsubun {2022}", 146},
+     {"Retro White Pure Platinum", 100},
+     {"QS LeBron James Fruity Pebbles", 101},
+     {"Team Gold", 101},
+     {"Retro Red Swoosh Panda", 122},
+     {"Retro PRM Valentine's Day {2023}", 106},
+     {"High Panda Black White {2021}", 120},
+     {"Retro QS Argon {2022}", 112},
+     {"Summit White Midnight Navy", 152},
+     {"Mica Green", 124},
+     {"High Blue Chill", 98},
+     {"Stencil Swoosh", 128},
+     {"Retro Reverse Brazil", 100},
+     {"Racer Blue Photon Dust", 127},
+     {"SP Kentucky {2020/2022}", 196},
+     {"Coconut Milk", 154}
+    };
+    vector<vector< Commodity>> AllShoese = {AirForce1,AirMax,Dunk};
+    string control="yes";
+    while (control != "no") {
+        //展示商品清單
+        Show(AllShoese,size);
+        //展示購物車
+        //
+        cout << "請選擇編號加入購物車: "<<endl;
+
+        cout << "請問是否再次選擇? (yes/no)";
+        cin >> control;
+    }
+    
+       
+    
+    
+}

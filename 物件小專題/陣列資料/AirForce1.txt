@@ -1,0 +1,22 @@
+vector<Commodity> AirForce1 = {
+{"07 White", 101,12},
+{"Supreme White", 161,5},
+{"SP AMBUSH Black", 197,23},
+{"Supreme Black", 163,3},
+{"Off-White Pine Green", 177,8},
+{"07 Black Black", 112,10},
+{"Four Horsemen LeBron", 103,16},
+{"SP AMBUSH Phantom", 220,23},
+{"Drake NOCTA Certified Lover Boy", 164,1},
+{"Tiffany & Co.1837", 934,4},
+{"SP Supreme Wheat", 200,6},
+{"Off-White Blac", 148,7},
+{"Jackie Robinson", 262,14},
+{"07 White Swoosh Panda", 101,11},
+{"Off-White White", 144,18},
+{"Flax (2019/2022)", 106,2},
+{"SP Billie Eilish Triple White", 106,9},
+{"07 Feel Free, Let’s Talk", 123,13},
+{"07 QS Purple Skeleton Halloween (2021)", 108,15},
+{"Stussy Fossil", 151,19}
+};

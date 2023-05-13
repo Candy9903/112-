@@ -1,0 +1,3 @@
+問題一
+請問 為什麼 const int size 放全域 
+function Show 裡的size VS說模玲兩可
