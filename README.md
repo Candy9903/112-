@@ -1,5 +1,5 @@
 此程式為 CMD的購物車 
-
+![image]([picture or gif url](https://github.com/Candy9903/112-/blob/main/%E7%89%A9%E4%BB%B6%E5%B0%8F%E5%B0%88%E9%A1%8C/Flowchartdiagram1.png))
 一開始 會顯示商品 (由main函式 所建立的
 
 顯示購物車清單
