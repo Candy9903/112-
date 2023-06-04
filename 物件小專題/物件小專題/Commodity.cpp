@@ -31,6 +31,6 @@ int Commodity::getAmount()const {
 	return amount;
 }
 void Commodity::print() {
-	cout << setw(6) << "TW$: " << getPrice()<<setw(11)  <<"數量: "<<setw(2)<< amount<< right;
-	cout << setw(50) << commodityName ;
+	cout << setw(6) << "TW$: " << getPrice() << setw(11) << right <<"數量: "<< setw(2) << getAmount();
+	cout << setw(50) << getCommodityName();
 }

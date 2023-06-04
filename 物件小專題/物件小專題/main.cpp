@@ -1,5 +1,6 @@
 ﻿#include "ShopCart.h"
 #include "AddList.h"
+#include "Commodity.h"
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -34,8 +35,7 @@ void Show(vector<vector< Commodity>> AllShoese, int size) {
     total = 0;
 }
 int main()
-{
-
+{   
     //addList 把選到的加到此物件陣列裡 一維就夠了 可以用二維 來分開 所加入的做分類並列印出來 要有static
     vector<Commodity> AirForce1 = {
     {"07 White", 101,12},
@@ -47,7 +47,7 @@ int main()
     {"Four Horsemen LeBron", 103,16},
     {"SP AMBUSH Phantom", 220,23},
     {"Drake NOCTA Certified Lover Boy", 164,1},
-    {"Tiffany & Co.1837", 934,4},
+    {"Tiffany & Co.1837", 333,4},
     {"SP Supreme Wheat", 200,6},
     {"Off-White Blac", 148,7},
     {"Jackie Robinson", 262,14},
@@ -103,59 +103,86 @@ int main()
      {"SP Kentucky {2020/2022}", 196,15},
      {"Coconut Milk", 154,19}
     };
-    vector<vector< Commodity>> AllShoese = { AirForce1,AirMax,Dunk };
+
+    vector<vector<Commodity>> AllShoese = { AirForce1,AirMax,Dunk };
     string control = "yes";//讓使用者控制 程式
     const int size = 20;//AirForce1、AirMax、Dunk物件陣列大小
     int number;//讓使用者輸入編號
     int amount;//讓使用者輸入數量
     int correctAmount;//確認輸入的數量的變數
+    
     vector<AddList> addList(0);
+
     while (control != "no") {
         //展示商品清單
         
         static int count = 0;
         Show(AllShoese, size);
         cout << "已購賣的商品 : " << endl;
+        double sum = 0;
         for (int i = 0; i < addList.size(); i++) {  //展示購物車
-            cout << addList[i].getCommodity() << " 數量 : " << addList[i].getAmount() << endl;
+            if (addList[i].getCommodity() < 20) {
+                cout << setw(2) << i + 1 << " 編號 " << setw(2) << addList[i].getCommodity() << " "
+                    << "TW$:" << setw(6) << AirForce1[addList[i].getCommodity()].getPrice() * addList[i].getAmount() << " " << " 數量:" << setw(2)
+                    << addList[i].getAmount() << " " << setw(44) << AirForce1[addList[i].getCommodity()].getCommodityName() << endl;
+                sum += AirForce1[addList[i].getCommodity() % 20].getPrice() * addList[i].getAmount();
+            }
+            else if (addList[i].getCommodity() >= 20 && addList[i].getCommodity() < 40) {
+                cout << setw(2) << i + 1 << " 編號 " << setw(2) << addList[i].getCommodity() << " "
+                    << "TW$:" << setw(6) << AirMax[addList[i].getCommodity() % 20].getPrice() * addList[i].getAmount() << " " << " 數量:" << setw(2)
+                    << addList[i].getAmount() << " " << setw(44) << AirMax[addList[i].getCommodity() % 20].getCommodityName() << endl;
+                sum += AirMax[addList[i].getCommodity() % 20].getPrice() * addList[i].getAmount();
+            }
+            else if (addList[i].getCommodity() >= 40) {
+                cout << setw(2) << i + 1 << " 編號 " << setw(2) << addList[i].getCommodity() << " "
+                    << "TW$:" << setw(6) << Dunk[addList[i].getCommodity() % 20].getPrice() * addList[i].getAmount() << " " << " 數量:" << setw(2)
+                    << addList[i].getAmount() << " " << setw(44) << Dunk[addList[i].getCommodity() % 20].getCommodityName() << endl;
+                sum += Dunk[addList[i].getCommodity() % 20].getPrice() * addList[i].getAmount();
+            }
+            
         }
+        cout << " "  << left << "總金額:" << fixed << setprecision(3) << sum / 10000 << "W";
+
         cout << endl;
 
-        //115~136行 輸入編號和判斷輸入是否正確
+        //115~136行 輸入編號和判斷輸入是否正確    
         cout << "請選擇編號加入購物車: " << endl;
         cin >> number;
-        
         //下判斷輸入是否正確
         while (true) {
-
             // 判断输入是否成功//*****
-            if (cin.fail() || (number >= 60 || number < 0)) {
+            if (number < 20) {
+                correctAmount = AirForce1[number].getAmount();
+            }
+            else if (number >= 20 && number < 40) {
+                correctAmount = AirMax[number % 20].getAmount();
+            }
+            else if (number >= 40) {
+                correctAmount = Dunk[number % 20].getAmount();
+            }
+            if (cin.fail() || (number >= 60 || number < 0) || correctAmount == 0) {
                 //假如使用者 輸入@@ 代表cin.fail()會回傳ture 就會執行cin>>number 
                 //但是如果使用者輸入123 則cin.fail()回傳false  並交由(number>=size||number<0)來判斷number是否在0到60之間
                 //if(false || (ture(123)||false)
                 //承第二例如果使用(number<size&&number>=0)來判斷
                 //if(false || false{ (false && ture ) }
                 //就不會進入以下程式
+   
                 cin.clear(); // 清空输入缓冲區
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略掉之前輸入的内容
+                if (correctAmount == 0)  cout << "此商品數量不足，請重新輸入編號" << endl;
                 cout << "****請輸入正確的編號****" << endl;
                 cin >> number;
+
             }
             else {
                 break; // 輸入成功，退出循環
             }
         }
+        
 
         //137~160行 為 輸入數量和判斷輸入的數量 是否正確
-        if (number < 20) {
-            correctAmount = AirForce1[number].getAmount();
-        }
-        else if (number >= 20 && number < 40) {
-            correctAmount = AirMax[number % 20].getAmount();
-        }
-        else if (number >= 40) {
-            correctAmount = Dunk[number % 20].getAmount();
-        }
+       
         
         int x = 0;
         for (int i = 0; i < addList.size(); i++) {
@@ -163,25 +190,27 @@ int main()
                 x++;
             }
         }
-        
-        
-        
 
         cout << "請輸入所需要的數量:" << endl;
+
+
+
         cin >> amount;
         
         while (true)
         {
-            if (cin.fail() || (amount > correctAmount || amount <= 0)) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略掉之前输入的内容
-                cout << "****請輸入正確的數量****" << endl;
-                cin >> amount;
-            }
-            else {
-                break;//輸入正確的數量 跳出循環
-            }
+            
+                if (cin.fail() || (amount > correctAmount || amount <= 0)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 忽略掉之前输入的内容
+                    cout << "****請輸入正確的數量****" << endl;
+                    cin >> amount;
+                }
+                else {
+                    break;//輸入正確的數量 跳出循環
+                }
         }
+
         //更新展示購物車(下判斷使用者是否輸入編號否則不展示購物車)
 
         //168~174行 詢問是否再次執行 、 輸入字串 、 判斷字串是否正確
@@ -200,7 +229,24 @@ int main()
                 if (number == addList[i].getCommodity())  addList[i].setAmount(amount + addList[i].getAmount());
             }
         }
-        
+       
+        if (number < 20) {
+            AllShoese[0][number].setAmount(AirForce1[number].getAmount() - amount);
+            AirForce1[number].setAmount(AirForce1[number].getAmount() - amount);
+        }
+        else if (number >= 20 && number < 40) {
+            AllShoese[1][number % 20].setAmount(AirMax[number % 20].getAmount() - amount);
+            AirMax[number % 20].setAmount(AirMax[number % 20].getAmount() - amount);
+        }
+        else if (number >= 40) {
+            AllShoese[2][number % 20].setAmount(Dunk[number % 20].getAmount() - amount);
+            Dunk[number % 20].setAmount(Dunk[number % 20].getAmount() - amount);
+        }
+
+
+
+
+
         count++;
     }
 
