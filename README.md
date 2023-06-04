@@ -10,7 +10,7 @@
 
 輸入所需數量(會判斷是否正確 並更改 商品裡的數量
 
-![image](https://github.com/Candy9903/112-/blob/main/%E7%89%A9%E4%BB%B6%E5%B0%8F%E5%B0%88%E9%A1%8C/1.PNG)
+![image](https://github.com/Candy9903/112-/blob/main/%E7%89%A9%E4%BB%B6%E5%B0%8F%E5%B0%88%E9%A1%8C/3.PNG)
 
 把選取到的編號和數量加入購物車
 
