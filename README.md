@@ -12,6 +12,8 @@
 
 ![image](https://github.com/Candy9903/112-/blob/main/%E7%89%A9%E4%BB%B6%E5%B0%8F%E5%B0%88%E9%A1%8C/3.PNG)
 
+程式會詢問使用者 是否再次選擇(yes/no?) 
+
 把選取到的編號和數量加入購物車
 
-程式會詢問使用者 是否再次選擇(yes/no?) 
+![image](https://github.com/Candy9903/112-/blob/main/%E7%89%A9%E4%BB%B6%E5%B0%8F%E5%B0%88%E9%A1%8C/4.PNG)
