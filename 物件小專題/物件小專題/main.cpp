@@ -5,20 +5,21 @@
 #include <iomanip>
 #include <vector>
 
+
 using namespace std;
 
 static int total = 0;
 //輸出商品清單
 void Show(vector<vector< Commodity>> AllShoese, int size) {
-    cout << "-------------------------商品資料----------------------------" << endl << endl << endl;
+    cout << "--------------------------------商品資料-----------------------------------" << endl << endl << endl;
     for (int i = 0; i < 3; i++) {
         if (i == 0) {
-            cout << "-------------------------AirForce----------------------------" << endl << endl;
+            cout << "--------------------------------AirForce-----------------------------------" << endl << endl;
         }
         else if (i == 1) {
-            cout << "-------------------------AirMax----------------------------" << endl << endl;
+            cout << "---------------------------------AirMax------------------------------------" << endl << endl;
         }
-        else cout << "-------------------------Dunk----------------------------" << endl << endl;
+        else cout << "----------------------------------Dunk-------------------------------------" << endl << endl;
         for (int j = 0; j < size; j++) {
             if (total < 10) {
                 cout << setw(2) << total;
